@@ -1,8 +1,61 @@
 {
-  "unknown": {
+  "C:\\wamp64\\www\\Kelly Felder Clone\\backend-aws\\serverless.yml": {
     "versionFramework": "4.22.0",
-    "command": [],
+    "servicePath": "C:\\wamp64\\www\\Kelly Felder Clone\\backend-aws\\serverless.yml",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "org": "jvlsk",
+      "service": "sample-clothing-backend-aws",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs20.x",
+        "stage": "dev",
+        "region": "eu-north-1",
+        "versionFunctions": true
+      },
+      "functions": {
+        "api": {
+          "handler": "handler.handler",
+          "events": [
+            {
+              "httpApi": "*"
+            }
+          ],
+          "environment": "PORT:3030 ORIGIN:http://localhost:5173 MONGODB_URI:mongodb+srv://samanseedr2:ntHXai9P3xDFIItF@jvlsk.xxz4bku.mongodb.net/kellyFelder?appName=Jvlsk AWS_ACCESS_KEY_ID:AKIAR5VCZ5UAVEPAVM4O AWS_SECRET_ACCESS_KEY:vvfmj2PsS/n8JwDGnsGu9rbIsIIpx2juerJZ7xnl AWS_REGION:eu-north-1 AWS_S3_BUCKET_NAME:sample-clothing-images",
+          "name": "sample-clothing-backend-aws-dev-api"
+        }
+      }
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs20.x",
+      "stage": "dev",
+      "region": "eu-north-1",
+      "versionFunctions": true
+    },
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "error": {
+      "message": "Access denied when storing the parameter \"/serverless-framework/deployment/s3-bucket\". Please check your permissions and try again. You have the following options:\n• Ensure you have permission to create SSM and S3 resources.\n• Use the \"provider.deploymentBucket\" field to specify an existing S3 bucket.\n• Manually create the S3 bucket and SSM parameter.\n\nFor more details, please refer to the documentation: https://www.serverless.com/framework/docs/guides/deployment-bucket\n\nOriginal error: User: arn:aws:iam::132411682049:user/sample-clothing-images is not authorized to perform: ssm:PutParameter on resource: arn:aws:ssm:eu-north-1:132411682049:parameter/serverless-framework/deployment/s3-bucket because no identity-based policy allows the ssm:PutParameter action",
+      "code": "DEPLOYMENT_BUCKET_INSUFFICIENT_PERMISSIONS"
+    },
+    "serviceRawFile": "# \"org\" ensures this Service is used with the correct Serverless Framework Access Key.\norg: jvlsk\n# \"service\" is the name of this project. This will also be added to your AWS resource names.\nservice: sample-clothing-backend-aws\n\nprovider:\n  name: aws\n  runtime: nodejs20.x\n  # Uncomment to easily set up a custom domain. Read the docs for more details:\n  # https://www.serverless.com/framework/docs/providers/aws/guide/domains\n  # domain: api.example.com\n\nfunctions:\n  api:\n    handler: handler.handler\n    events:\n      - httpApi: \"*\"\n    environment: PORT:3030\n      ORIGIN:http://localhost:5173\n      MONGODB_URI:mongodb+srv://samanseedr2:ntHXai9P3xDFIItF@jvlsk.xxz4bku.mongodb.net/kellyFelder?appName=Jvlsk\n      AWS_ACCESS_KEY_ID:AKIAR5VCZ5UAVEPAVM4O\n      AWS_SECRET_ACCESS_KEY:vvfmj2PsS/n8JwDGnsGu9rbIsIIpx2juerJZ7xnl\n      AWS_REGION:eu-north-1\n      AWS_S3_BUCKET_NAME:sample-clothing-images\n",
+    "command": [
+      "deploy"
+    ],
     "options": {},
+    "orgId": "401f08b7-3ccd-4f26-b3e0-5128a4f882cc",
+    "orgName": "jvlsk",
+    "userId": "t25hws8qZh025FmK8s",
+    "userName": "jvlsk",
+    "serviceProviderAwsAccountId": "132411682049",
     "serviceProviderAwsCfStackId": null,
     "serviceProviderAwsCfStackCreated": null,
     "serviceProviderAwsCfStackUpdated": null,
