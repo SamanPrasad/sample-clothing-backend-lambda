@@ -19,7 +19,7 @@ provider:
             - arn:aws:s3:::sample-clothing-images/*
   # Uncomment to easily set up a custom domain. Read the docs for more details:
   # https://www.serverless.com/framework/docs/providers/aws/guide/domains
-  # domain: api.example.com
+  #  domain: api.example.com
 
 functions:
   api:
