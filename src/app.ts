@@ -4,6 +4,7 @@ import variantRouter from "./routes/variants";
 import sliderImages from "./routes/slider";
 import productsRouter from "./routes/products";
 import productGroupsRouter from "./routes/productGroups";
+import storageRouter from "./routes/storage";
 import cors from "cors";
 import dotenv from "dotenv";
 import { connectToDatabase } from "./db/connection";
@@ -29,6 +30,7 @@ app.use(async (req, res, next) => {
 
 app.get("/", (req, res) => res.send("Welcome to Sample Clothing..."));
 
+app.use("/storage", storageRouter);
 app.use("/users", userRouter);
 app.use("/products", productsRouter);
 app.use("/variants", variantRouter);
