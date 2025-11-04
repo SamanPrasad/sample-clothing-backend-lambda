@@ -6,6 +6,7 @@ import productsRouter from "./routes/products";
 import productGroupsRouter from "./routes/productGroups";
 import cors from "cors";
 import dotenv from "dotenv";
+import { connectToDatabase } from "./db/connection";
 dotenv.config();
 const app = express();
 
@@ -21,6 +22,11 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(async (req, res, next) => {
+  await connectToDatabase();
+  next();
+});
+
 app.get("/", (req, res) => res.send("Welcome to Sample Clothing..."));
 
 app.use("/users", userRouter);
