@@ -5,7 +5,7 @@ dotenv.config();
 
 export const getS3url = async (req: Request, res: Response) => {
   const s3Client = new AWS.S3({
-    region: process.env.AWS_REGION,
+    region: process.env.APP_AWS_REGION,
   });
 
   const params = {

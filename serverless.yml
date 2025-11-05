@@ -6,6 +6,9 @@ service: sample-clothing-backend-aws
 provider:
   name: aws
   runtime: nodejs20.x
+  region: eu-north-1
+  deploymentBucket:
+    name: serverless-deployments-sample
   iam:
     role:
       statements:
@@ -23,11 +26,12 @@ provider:
 
 functions:
   api:
-    handler: handler.handler
+    handler: dist/handler.handler
     events:
       - httpApi: "*"
-    environment: PORT:3030
-      ORIGIN:http://localhost:5173
-      MONGODB_URI:mongodb+srv://samanseedr2:ntHXai9P3xDFIItF@jvlsk.xxz4bku.mongodb.net/kellyFelder?appName=Jvlsk
-      AWS_REGION:eu-north-1
-      AWS_S3_BUCKET_NAME:sample-clothing-images
+    environment:
+      PORT: "3030"
+      ORIGIN: "http://localhost:5173"
+      MONGODB_URI: "mongodb+srv://samanseedr2:ntHXai9P3xDFIItF@jvlsk.xxz4bku.mongodb.net/kellyFelder?appName=Jvlsk"
+      APP_AWS_REGION: "eu-north-1"
+      AWS_S3_BUCKET_NAME: "sample-clothing-images"
